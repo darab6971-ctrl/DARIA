@@ -19,3 +19,19 @@ for i in a:
             result.append(ndict)
 a=result
 print(a)
+
+import time
+def timer(f):
+    def wrapper(x):
+        start=time.time()
+        res=f(x)
+        finish=time.time()
+        print("",finish-start)
+        return res
+    return wrapper
+@timer
+def hello(name):
+    time.sleep(1)
+    print("Привет",name)
+ans=hello("Даша")
+print(ans)
